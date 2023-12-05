@@ -36,4 +36,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}  # 使用 GitHub 提供的默认令牌
-          publish_dir: ./dist  # 指定构建后的目录
+          publish_dir: ./dist/index.html  # 指定构建后的目录
