@@ -1,0 +1,33 @@
+name: Deploy Vue 3 App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 假設您的主分支名稱為 main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # 可以根據您的需求選擇 Node.js 的版本
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          build_dir: ./dist  # Vue 3 項目的構建輸出目錄
