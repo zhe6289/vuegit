@@ -29,8 +29,11 @@ jobs:
       - name: Install & Build # 執行指令
         run: |
           npm install
-          npm run build 
+          npm run build
           
+      - name: Preview
+        run: npm run preview
+        
       # Runs a single command using the runners shell
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
