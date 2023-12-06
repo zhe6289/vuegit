@@ -30,9 +30,9 @@ jobs:
         with:
           node-version: '14'
 
-      - run: npm install -g bats
+      - run: npm install 
 
-      - run: bats -v
+      - run: npm run build
 
 
       # - name: Install & Build # 執行指令
@@ -40,9 +40,9 @@ jobs:
       #     npm install
       #     npm run build 
           
-      # # Runs a single command using the runners shell
-      # - name: Deploy to GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.ACCESS_TOKEN }}  # 使用 GitHub 提供的默认令牌
-      #     publish_dir: ./dist  # 指定构建后的目录
+      # Runs a single command using the runners shell
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}  # 使用 GitHub 提供的默认令牌
+          publish_dir: ./dist  # 指定构建后的目录
